@@ -1,7 +1,9 @@
 rootProject.name = "out-cry"
 include(
     "application-modules",
-    "domain-modules:user-domain"
+    "domain-modules:user-domain",
+    "client-modules:client-core",
+    "domain-modules:domain-jpa"
 )
 
 pluginManagement {

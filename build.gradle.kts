@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") apply false
     kotlin("jvm")
     kotlin("plugin.spring") apply false
+    kotlin("kapt") version "1.6.21"
 }
 
 val projectGroup: String by project

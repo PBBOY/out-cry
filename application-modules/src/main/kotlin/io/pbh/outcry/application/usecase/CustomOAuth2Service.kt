@@ -1,8 +1,8 @@
-package io.pbh.outcry.application
+package io.pbh.outcry.application.usecase
 
 import io.pbh.infrastructure.repository.JpaUserRepository
-import io.pbh.outcry.application.model.OAuthAttributes
-import io.pbh.outcry.application.model.SessionUser
+import io.pbh.outcry.application.usecase.model.OAuthAttributes
+import io.pbh.outcry.application.usecase.model.SessionUser
 import io.pbh.user.domain.model.User
 import io.pbh.user.domain.repository.UserRepository
 import org.springframework.context.annotation.ComponentScan
@@ -13,13 +13,12 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserService
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User
 import org.springframework.security.oauth2.core.user.OAuth2User
 import org.springframework.stereotype.Service
-import java.util.Collections
+import java.util.*
 import javax.servlet.http.HttpSession
 
 @Service
-@ComponentScan(basePackageClasses = [JpaUserRepository::class])
 class CustomOAuth2Service(
-    val userRepository: UserRepository,
+    val userRepository: JpaUserRepository,
     val httpSession: HttpSession
 ) : OAuth2UserService<OAuth2UserRequest, OAuth2User> {
 

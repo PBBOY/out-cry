@@ -1,2 +1,26 @@
 server:
   port: 8080
+
+spring:
+  mvc:
+    view:
+      prefix: resource/static/
+  profiles:
+    active: local
+    include:
+      - jpa
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 570010894402-klafsenr5vknp3i87gnjm2pjfsdgh39c.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - profile
+              - email

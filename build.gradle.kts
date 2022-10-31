@@ -62,4 +62,11 @@ subprojects {
     }
 }
 
+project(":application-modules") {
+    dependencies {
+        implementation(project(":domain-modules:user-domain"))
+        implementation(project(":domain-modules:domain-jpa"))
+    }
+}
+
 

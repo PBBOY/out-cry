@@ -1,4 +1,4 @@
-package io.pbh.outcry.application.model
+package io.pbh.outcry.application.usecase.model
 
 import io.pbh.user.domain.enums.RoleType
 import io.pbh.user.domain.model.User

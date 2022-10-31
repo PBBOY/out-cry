@@ -1,24 +1,22 @@
-package io.pbh.outcry.configuration
+package io.pbh.outcry.adapter.configuration
 
-import io.pbh.outcry.application.CustomOAuth2Service
+import io.pbh.outcry.application.usecase.CustomOAuth2Service
 import io.pbh.user.domain.enums.RoleType
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
-import org.springframework.http.HttpStatus
-import org.springframework.http.MediaType
+import org.springframework.context.annotation.PropertySource
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer
-import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.web.SecurityFilterChain
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 
 
 @EnableWebSecurity
 @Configuration
-@ComponentScan(basePackageClasses = [CustomOAuth2Service::class])
+@PropertySource("classpath:application.yaml")
+@ComponentScan(basePackages = ["io.pbh.outcry.application.usecase"])
 class SecurityConfiguration(val customOAuth2Service: CustomOAuth2Service) {
 
     @Bean

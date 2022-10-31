@@ -5,7 +5,7 @@ import io.pbh.user.domain.model.User
 import javax.persistence.*
 
 @Entity
-@Table(name = "user")
+@Table(name = "tb_user")
 class UserEntity(
     @Id
     @Column(name = "user_id")
@@ -18,7 +18,7 @@ class UserEntity(
     val locale: String?,
     @Enumerated(EnumType.STRING)
     val role: RoleType,
-    val name: String?
+    val userName: String?
 ) {
     companion object {
         fun of(user: User): UserEntity {
@@ -31,7 +31,7 @@ class UserEntity(
                 picture = user.picture,
                 locale = user.locale,
                 role = user.role,
-                name = user.name
+                userName = user.name
             )
         }
     }
@@ -46,7 +46,7 @@ class UserEntity(
             locale = locale,
             role = role
         ).also { u ->
-            u.name = name
+            u.name = userName
         }
     }
 }

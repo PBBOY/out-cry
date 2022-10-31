@@ -1,4 +1,4 @@
-package io.pbh.outcry.application.model
+package io.pbh.outcry.application.usecase.model
 
 data class SessionUser(
     val name: String,
